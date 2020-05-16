@@ -15,7 +15,9 @@ pipeline {
                    npm config set registry http://10.1.10.34:4873 
                    npm install -g cnpm 
                    cnpm set registry http://10.1.10.34:4873  
+                   set -x
                    cnpm i
+                   set +x
                 '''
             }
         }
