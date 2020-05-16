@@ -21,9 +21,7 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh './jenkins/deploy.sh'
-                input message: 'Finished using the server? (Click "Proceed" to continue)' 
-                sh './jenkins/kill.sh'
+                sh 'npm start'
             }
         }
     }
