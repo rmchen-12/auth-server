@@ -22,6 +22,8 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh 'npm start'
+                input message: 'Finished using the server? (Click "Proceed" to continue)'
+                sh 'exit server'
             }
         }
     }
