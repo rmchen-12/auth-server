@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:10-slim' 
-            args '-p 3002:3000' 
+            args '-p 3002:3002' 
         }
     }
     environment {
