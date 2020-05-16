@@ -11,16 +11,19 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'npm config set registry http://10.1.10.34:4873'
-                sh 'npm install -g cnpm'
-                sh 'cnpm i' 
+                sh '''
+                   npm config set registry http://10.1.10.34:4873 
+                   npm install -g cnpm 
+                   cnpm set registry http://10.1.10.34:4873  
+                   cnpm i
+                '''
             }
         }
         stage('Deliver') { 
             steps {
-                sh 'npm start' 
-                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh 'echo asdf'
+                sh './jenkins/deploy.sh'
+                input message: 'Finished using the server? (Click "Proceed" to continue)' 
+                sh './jenkins/kill.sh'
             }
         }
     }
