@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:10-slim' 
-            args '-p 7001:7001' 
+            args '-p 7001:7001 -v /root/npm/config:/npm/config -v /root/npm/storage:/npm/storage' 
         }
     }
     environment {
