@@ -24,7 +24,7 @@ class NpmService extends Service {
 
   async updateConfig(config) {
     const data = YAML.stringify(config);
-    await pify(fs.outputFile)(this.app.config.configPath, data);
+    await pify(fs.outputFile)(this.app.config.configPath, data.config);
     // const subprocess = execa('docker', ['restart', 'verdaccio']);
     // const { stdout } = await subprocess;
     // console.log('child output:', stdout);
