@@ -13,7 +13,7 @@ class HomeController extends Controller {
   async update() {
     const { npmConfig } = this.ctx.service;
     const newConfig = this.ctx.request.body;
-    // await npmConfig.updateConfig(newConfig);
+    await npmConfig.updateConfig(newConfig);
     this.ctx.body = 'update success';
   }
 }
